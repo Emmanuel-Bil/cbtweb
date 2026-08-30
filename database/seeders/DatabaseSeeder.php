@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ActivitiesSeeder::class,
             KeyDatesSeeder::class,
             DemoContentSeeder::class,
+            ZoneActivitiesSeptember2026Seeder::class,
         ]);
     }
 }

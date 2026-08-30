@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Concerns\ResourceController;
 use App\Models\Event;
+use App\Models\Zone;
 
 class EventController extends ResourceController
 {
@@ -16,6 +17,7 @@ class EventController extends ResourceController
     protected function fields(): array
     {
         return [
+            ['name' => 'zone_id', 'label' => 'Zone (optionnel)', 'type' => 'select', 'options' => Zone::orderBy('order')->pluck('name', 'id')->toArray()],
             ['name' => 'title', 'label' => 'Titre', 'type' => 'text', 'required' => true],
             ['name' => 'description', 'label' => 'Description', 'type' => 'textarea'],
             ['name' => 'starts_at', 'label' => 'Date de début', 'type' => 'datetime', 'required' => true],
