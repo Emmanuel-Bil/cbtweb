@@ -18,35 +18,29 @@
             </div>
         @endforeach
 
-        <h2 class="text-2xl font-extrabold text-blue-950 text-center mb-8">Événements détaillés</h2>
-        @if($events->isEmpty())
-            <p class="text-center text-slate-400">Aucun événement à venir pour le moment.</p>
+        <h2 class="text-2xl font-extrabold text-blue-950 text-center mb-8">Événements à venir</h2>
+        @if($upcomingEvents->isEmpty())
+            <p class="text-center text-slate-400 mb-16">Aucun événement à venir pour le moment.</p>
         @else
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                @foreach($events as $event)
-                    <div class="rounded-2xl ring-1 ring-slate-100 overflow-hidden hover:shadow-lg transition">
-                        @if($event->image)
-                            <img src="{{ \Illuminate\Support\Facades\Storage::url($event->image) }}" class="w-full h-40 object-cover" alt="{{ $event->title }}">
-                        @endif
-                        <div class="p-6">
-                            <div class="flex items-center flex-wrap gap-2 mb-2">
-                                <span class="text-xs text-sky-600 font-semibold">
-                                    {{ $event->starts_at->translatedFormat('d F Y') }}
-                                    @if($event->ends_at && !$event->ends_at->isSameDay($event->starts_at))
-                                        &rarr; {{ $event->ends_at->translatedFormat('d F Y') }}
-                                    @endif
-                                    @if($event->location) &middot; {{ $event->location }}@endif
-                                </span>
-                                @if($event->zone)
-                                    <span class="inline-block px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 text-[11px] font-semibold uppercase">{{ $event->zone->name }}</span>
-                                @endif
-                            </div>
-                            <h3 class="font-bold text-blue-950">{{ $event->title }}</h3>
-                            <p class="text-sm text-slate-500 mt-2">{{ $event->description }}</p>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
+                @foreach($upcomingEvents as $event)
+                    @include('events.partials.card', ['event' => $event])
                 @endforeach
             </div>
+        @endif
+
+        @if($pastEvents->isNotEmpty())
+            <details class="group">
+                <summary class="cursor-pointer list-none flex items-center justify-center gap-2 text-2xl font-extrabold text-blue-950 text-center mb-8">
+                    Historique des événements
+                    <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 opacity-75">
+                    @foreach($pastEvents as $event)
+                        @include('events.partials.card', ['event' => $event])
+                    @endforeach
+                </div>
+            </details>
         @endif
     </section>
 @endsection
