@@ -11,7 +11,7 @@
         @else
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($videos as $video)
-                    <div class="rounded-2xl overflow-hidden ring-1 ring-slate-100">
+                    <div class="cbt-card overflow-hidden">
                         <div class="aspect-video bg-black">
                             <iframe src="{{ $video->embed_url }}" class="w-full h-full" allowfullscreen loading="lazy"></iframe>
                         </div>

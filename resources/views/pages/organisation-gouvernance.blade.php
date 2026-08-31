@@ -26,7 +26,7 @@
         @endif
 
         <div>
-            <h2 class="text-2xl font-extrabold text-blue-950 text-center mb-10">Membres du Bureau Exécutif</h2>
+            <h2 class="cbt-section-title text-center mb-10">Membres du Bureau Exécutif</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
                 @foreach($bureauRest as $member)
                     <div class="text-center">
@@ -46,7 +46,7 @@
         </div>
 
         <div>
-            <h2 class="text-2xl font-extrabold text-blue-950 text-center mb-10">Directeurs des Départements</h2>
+            <h2 class="cbt-section-title text-center mb-10">Directeurs des Départements</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
                 @foreach($directors as $member)
                     <div class="text-center">
@@ -66,7 +66,7 @@
         </div>
 
         <div>
-            <h2 class="text-2xl font-extrabold text-blue-950 text-center mb-10">Modérateurs des Zones</h2>
+            <h2 class="cbt-section-title text-center mb-10">Modérateurs des Zones</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
                 @foreach($zoneModerators as $member)
                     <div class="text-center">

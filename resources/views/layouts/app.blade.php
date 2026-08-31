@@ -11,11 +11,11 @@
 </head>
 <body class="min-h-screen flex flex-col bg-white text-slate-800 antialiased">
 
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0">
-                    <x-cbt-logo class="h-12 w-12" />
+                <a href="{{ route('home') }}" class="flex items-center gap-3 shrink-0 group">
+                    <x-cbt-logo class="h-12 w-12 transition duration-300 group-hover:scale-105" />
                     <span class="hidden sm:block leading-tight">
                         <span class="block text-sm font-bold text-blue-950 tracking-wide">CONVENTION BAPTISTE</span>
                         <span class="block text-xs font-semibold text-sky-600 tracking-widest">DU TOGO</span>
@@ -74,7 +74,7 @@
 
                     <a href="{{ route('contact') }}" class="px-3 py-2 rounded hover:text-sky-600 {{ request()->routeIs('contact') ? 'text-sky-600' : '' }}">CONTACT</a>
 
-                    <a href="{{ route('don') }}" class="ml-2 inline-flex items-center px-4 py-2 rounded-full bg-sky-600 text-white text-xs font-bold hover:bg-sky-700 transition">Faire un don</a>
+                    <a href="{{ route('don') }}" class="ml-2 inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xs font-bold shadow-md shadow-sky-600/20 hover:shadow-lg hover:shadow-sky-600/30 hover:-translate-y-0.5 transition duration-300">Faire un don</a>
                 </nav>
 
                 <button type="button" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')" class="lg:hidden p-2 text-blue-950">
@@ -117,8 +117,10 @@
         @yield('content')
     </main>
 
-    <footer class="bg-blue-950 text-blue-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer class="relative bg-gradient-to-b from-blue-950 to-slate-950 text-blue-100 overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/60 to-transparent"></div>
+        <div class="absolute -top-24 right-0 w-96 h-96 rounded-full bg-sky-500/10 blur-3xl" aria-hidden="true"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div>
                 <div class="flex items-center gap-3 mb-4">
                     <x-cbt-logo class="h-10 w-10" light />
@@ -150,15 +152,15 @@
             <div>
                 <h3 class="text-white font-semibold mb-4">S'engager</h3>
                 <p class="text-sm text-blue-200/80 mb-4">Soutenez nos actions missionnaires et sociales à travers votre don ou en restant informé.</p>
-                <a href="{{ route('don') }}" class="inline-block mb-5 px-4 py-2 rounded-full bg-sky-600 text-white text-xs font-bold hover:bg-sky-700">Faire un don</a>
+                <a href="{{ route('don') }}" class="inline-block mb-5 px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xs font-bold shadow-md shadow-sky-600/20 hover:shadow-lg hover:-translate-y-0.5 transition duration-300">Faire un don</a>
                 <form method="POST" action="{{ route('newsletter.subscribe') }}" class="flex gap-2">
                     @csrf
-                    <input type="email" name="email" required placeholder="Votre adresse email" class="min-w-0 flex-1 rounded-md px-3 py-2 text-sm text-slate-900">
-                    <button type="submit" class="shrink-0 px-3 py-2 rounded-md bg-white text-blue-950 text-sm font-semibold hover:bg-blue-100">S'abonner</button>
+                    <input type="email" name="email" required placeholder="Votre adresse email" class="min-w-0 flex-1 rounded-md px-3 py-2 text-sm text-slate-900 ring-1 ring-transparent focus:ring-sky-400 focus:outline-none transition">
+                    <button type="submit" class="shrink-0 px-3 py-2 rounded-md bg-white text-blue-950 text-sm font-semibold hover:bg-blue-100 transition">S'abonner</button>
                 </form>
             </div>
         </div>
-        <div class="border-t border-white/10 py-5 text-center text-xs text-blue-300/70">
+        <div class="relative border-t border-white/10 py-5 text-center text-xs text-blue-300/70">
             &copy; {{ date('Y') }} Convention Baptiste du Togo. Tous droits réservés.
         </div>
     </footer>

@@ -14,7 +14,7 @@
             <p class="text-center text-slate-400">Les données de localisation des églises seront ajoutées prochainement. Contactez-nous pour plus d'informations.</p>
         @else
             <div id="churches-map"
-                 class="w-full h-[32rem] rounded-2xl ring-1 ring-slate-100 z-0"
+                 class="w-full h-[32rem] rounded-2xl ring-1 ring-slate-100 shadow-sm z-0"
                  data-churches='{{ $churchesJson }}'
             ></div>
             <p class="text-center text-xs text-slate-400 mt-4">{{ $churches->count() }} église(s) localisée(s). D'autres seront ajoutées progressivement via l'espace d'administration.</p>

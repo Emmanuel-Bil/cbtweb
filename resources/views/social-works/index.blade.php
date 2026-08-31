@@ -14,12 +14,17 @@
             <p class="text-center text-slate-400">Le contenu de cette section sera bientôt disponible.</p>
         @else
             @foreach($works as $category => $items)
-                <h2 class="text-xl font-bold text-blue-950 mb-6">{{ $category }}</h2>
+                <h2 class="flex items-center gap-3 text-xl font-bold text-blue-950 mb-6">
+                    <span class="w-1.5 h-6 rounded-full bg-gradient-to-b from-sky-400 to-blue-600"></span>
+                    {{ $category }}
+                </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
                     @foreach($items as $item)
-                        <div class="rounded-2xl overflow-hidden ring-1 ring-slate-100 hover:shadow-lg transition">
+                        <div class="cbt-card group overflow-hidden">
                             @if($item->image)
-                                <img src="{{ \Illuminate\Support\Facades\Storage::url($item->image) }}" class="w-full h-40 object-cover" alt="{{ $item->title }}">
+                                <div class="h-40 overflow-hidden">
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::url($item->image) }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="{{ $item->title }}">
+                                </div>
                             @endif
                             <div class="p-5">
                                 <h3 class="font-bold text-blue-950">{{ $item->title }}</h3>

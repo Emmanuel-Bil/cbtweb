@@ -11,10 +11,10 @@
         @else
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($news as $item)
-                    <a href="{{ route('actualites.show', $item) }}" class="group block rounded-2xl overflow-hidden ring-1 ring-slate-100 hover:shadow-lg transition">
+                    <a href="{{ route('actualites.show', $item) }}" class="cbt-card group block overflow-hidden">
                         <div class="h-44 bg-sky-100 overflow-hidden">
                             @if($item->image)
-                                <img src="{{ \Illuminate\Support\Facades\Storage::url($item->image) }}" class="w-full h-full object-cover group-hover:scale-105 transition" alt="{{ $item->title }}">
+                                <img src="{{ \Illuminate\Support\Facades\Storage::url($item->image) }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="{{ $item->title }}">
                             @endif
                         </div>
                         <div class="p-5">

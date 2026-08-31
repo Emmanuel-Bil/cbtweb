@@ -50,10 +50,13 @@ class ZoneActivitiesSeptember2026Seeder extends Seeder
         ];
 
         foreach ($events as [$zone, $title, $description, $start, $end, $location]) {
+            // Match on zone_id + title only: starts_at is stored as a full datetime,
+            // so including it here breaks matching on SQLite and creates duplicates.
             Event::updateOrCreate(
-                ['zone_id' => $zone?->id, 'title' => $title, 'starts_at' => $start],
+                ['zone_id' => $zone?->id, 'title' => $title],
                 [
                     'description' => $description,
+                    'starts_at' => $start,
                     'ends_at' => $end,
                     'location' => $location,
                 ]

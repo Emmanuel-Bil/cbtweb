@@ -12,8 +12,11 @@
             <div class="space-y-10">
                 @foreach($churches as $region => $group)
                     <div>
-                        <h2 class="text-lg font-bold text-blue-950 mb-4">{{ $region }}</h2>
-                        <div class="overflow-x-auto rounded-xl ring-1 ring-slate-100">
+                        <h2 class="flex items-center gap-3 text-lg font-bold text-blue-950 mb-4">
+                            <span class="w-1.5 h-6 rounded-full bg-gradient-to-b from-sky-400 to-blue-600"></span>
+                            {{ $region }}
+                        </h2>
+                        <div class="overflow-x-auto rounded-2xl ring-1 ring-slate-100 shadow-sm">
                             <table class="min-w-full text-sm">
                                 <thead class="bg-slate-50 text-slate-500 uppercase text-xs">
                                     <tr>
@@ -26,7 +29,7 @@
                                 </thead>
                                 <tbody class="divide-y divide-slate-100">
                                     @foreach($group as $church)
-                                        <tr class="hover:bg-sky-50/50">
+                                        <tr class="transition hover:bg-sky-50">
                                             <td class="px-4 py-3 font-semibold text-blue-950">{{ $church->name }}</td>
                                             <td class="px-4 py-3 text-slate-500">{{ $church->city }}</td>
                                             <td class="px-4 py-3 text-slate-500">{{ $church->zone?->name }}</td>

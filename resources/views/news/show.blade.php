@@ -25,7 +25,7 @@
             <h2 class="text-xl font-bold text-blue-950 mb-8">Autres actualités</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 @foreach($recent as $item)
-                    <a href="{{ route('actualites.show', $item) }}" class="block rounded-xl bg-white p-5 ring-1 ring-slate-100 hover:shadow-md transition">
+                    <a href="{{ route('actualites.show', $item) }}" class="cbt-card block p-5">
                         <h3 class="font-semibold text-blue-950 text-sm">{{ $item->title }}</h3>
                     </a>
                 @endforeach

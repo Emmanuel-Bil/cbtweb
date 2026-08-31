@@ -9,20 +9,23 @@
         @if($page?->image)
             <img src="{{ \Illuminate\Support\Facades\Storage::url($page->image) }}" alt="" class="w-full h-56 object-cover rounded-2xl mb-10">
         @endif
-        <h2 class="text-2xl font-extrabold text-blue-950 mb-3">Soutenez notre mission</h2>
+        <p class="cbt-eyebrow justify-center mb-3">S'engager</p>
+        <h2 class="cbt-section-title mb-3">Soutenez notre mission</h2>
         <p class="text-slate-500 mb-12">Vos dons nous aident à soutenir les églises, les programmes sociaux et les activités de la CBT.</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
-            <div class="rounded-2xl ring-1 ring-slate-100 p-8">
+            <div class="cbt-card p-8">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center text-2xl mb-4">📱</div>
                 <h3 class="font-bold text-blue-950 text-lg mb-2">Moov Money</h3>
                 <p class="text-sm text-slate-500 mb-4">Envoyez votre contribution au numéro :</p>
-                <p class="text-2xl font-extrabold text-sky-600 mb-4">{{ \App\Models\Setting::get('don_moov_number', '90 00 00 00') }}</p>
+                <p class="text-2xl font-extrabold bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent mb-4">{{ \App\Models\Setting::get('don_moov_number', '90 00 00 00') }}</p>
                 <p class="text-xs text-slate-400">Pour l'instant, seuls les paiements via Mobile Money sont acceptés.</p>
             </div>
-            <div class="rounded-2xl ring-1 ring-slate-100 p-8">
+            <div class="cbt-card p-8">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center text-2xl mb-4">📱</div>
                 <h3 class="font-bold text-blue-950 text-lg mb-2">Mixx By Yas</h3>
                 <p class="text-sm text-slate-500 mb-4">Envoyez votre contribution au numéro :</p>
-                <p class="text-2xl font-extrabold text-sky-600 mb-4">{{ \App\Models\Setting::get('don_mixx_number', '92 00 00 00') }}</p>
+                <p class="text-2xl font-extrabold bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent mb-4">{{ \App\Models\Setting::get('don_mixx_number', '92 00 00 00') }}</p>
                 <p class="text-xs text-slate-400">Pour l'instant, seuls les paiements via Mobile Money sont acceptés.</p>
             </div>
         </div>

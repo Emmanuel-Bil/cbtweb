@@ -10,10 +10,13 @@
             <p class="text-center text-slate-400">La bibliothèque numérique sera bientôt disponible.</p>
         @else
             @foreach($items as $category => $group)
-                <h2 class="text-lg font-bold text-blue-950 mb-4">{{ $category }}</h2>
+                <h2 class="flex items-center gap-3 text-lg font-bold text-blue-950 mb-4">
+                    <span class="w-1.5 h-6 rounded-full bg-gradient-to-b from-sky-400 to-blue-600"></span>
+                    {{ $category }}
+                </h2>
                 <div class="space-y-3 mb-10">
                     @foreach($group as $item)
-                        <div class="rounded-xl ring-1 ring-slate-100 p-5">
+                        <div class="cbt-card p-5">
                             <h3 class="font-semibold text-blue-950">{{ $item->title }}</h3>
                             @if($item->description)<p class="text-sm text-slate-500 mt-1">{{ $item->description }}</p>@endif
                             @if($item->file)

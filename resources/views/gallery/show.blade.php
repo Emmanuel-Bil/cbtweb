@@ -11,8 +11,8 @@
         @else
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 @foreach($gallery->photos as $photo)
-                    <div class="rounded-xl overflow-hidden ring-1 ring-slate-100 aspect-square bg-sky-50">
-                        <img src="{{ \Illuminate\Support\Facades\Storage::url($photo->image) }}" class="w-full h-full object-cover" alt="{{ $photo->caption }}">
+                    <div class="group rounded-xl overflow-hidden ring-1 ring-slate-100 aspect-square bg-sky-50 shadow-sm transition duration-300 hover:shadow-xl">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($photo->image) }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="{{ $photo->caption }}">
                     </div>
                 @endforeach
             </div>
